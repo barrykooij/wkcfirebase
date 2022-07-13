@@ -1,4 +1,4 @@
-module wkcfirebase
+module github.com/barrykooij/wkcfirebase
 
 go 1.18
 
