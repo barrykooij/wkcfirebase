@@ -40,7 +40,7 @@ func (c *Client) TearDown() {
 	}
 }
 
-func (c *Client) SetupStateChangeListener(listener StateListener) {
+func (c *Client) SetupStateChangeListener(listener StateChangedListener) {
 	snapshotIteration := c.fsclient.Collection("State").Doc("State").Snapshots(context.Background())
 	c.Logger.Println("snapshot listener setup")
 	for {
@@ -69,7 +69,7 @@ func (c *Client) SetupStateChangeListener(listener StateListener) {
 		}
 
 		// set state
-		listener.StateChanged(s)
+		listener(s)
 	}
 }
 

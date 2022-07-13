@@ -6,4 +6,4 @@ type StateDocument struct {
 	Question string `firestore:"question"`
 }
 
-type StateChangedListener func() *StateDocument
+type StateChangedListener func(*StateDocument)
